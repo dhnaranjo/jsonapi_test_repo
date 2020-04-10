@@ -2,6 +2,7 @@
 
 # This file loads Spring without using Bundler, in order to be fast.
 # It gets overwritten when you run the `spring binstub` command.
+ENV['SPRING_SERVER_COMMAND'] = "spring server"
 
 unless defined?(Spring)
   require 'rubygems'
