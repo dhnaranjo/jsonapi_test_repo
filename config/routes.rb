@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   namespace :api do
-    resources :users, only: [:index]
+    jsonapi_resources :users
+    jsonapi_resources :things
+    get "*path", to: ->(_params) { raise ActionController::RoutingError.new('Not found') }
   end
 
   root "home#index"

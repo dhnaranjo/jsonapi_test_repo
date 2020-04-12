@@ -1,5 +1,9 @@
 class ApiController < ApplicationController
+  include JSONAPI::ActsAsResourceController
   before_action :authenticate_user!
-
-  respond_to :json
+  protect_from_forgery with: :null_session
+  
+  def context
+    {current_user: current_user}
+  end
 end
