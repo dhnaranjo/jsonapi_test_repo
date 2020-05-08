@@ -1,0 +1,2 @@
+class Fear < ApplicationRecord
+end

@@ -15,7 +15,8 @@ export const concatRelationshipAttribute = (
     : fallback;
 };
 
-const ColHeading = ({ label, disabled }) => !disabled ? <th key={label}>{label}</th> : null;
+const ColHeading = ({ label, disabled }) =>
+  !disabled ? <th key={label}>{label}</th> : null;
 
 const ColContent = ({ data, colDefinition }) => {
   const { attribute, dataHandler } = colDefinition;
@@ -29,9 +30,15 @@ const ColContent = ({ data, colDefinition }) => {
 const Row = ({ data, definition }) => {
   return (
     <tr key={data.id}>
-      {definition.map((colDefinition) => !colDefinition.disabled ? (
-        <ColContent key={`${colDefinition.label}-${data.id}`} data={data} colDefinition={colDefinition} />
-      ) : null)}
+      {definition.map((colDefinition) =>
+        !colDefinition.disabled ? (
+          <ColContent
+            key={`${colDefinition.label}-${data.id}`}
+            data={data}
+            colDefinition={colDefinition}
+          />
+        ) : null
+      )}
     </tr>
   );
 };
